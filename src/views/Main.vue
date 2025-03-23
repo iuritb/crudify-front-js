@@ -38,6 +38,7 @@ import { useRouter } from 'vue-router'
 
 import userService from "../services/userService";
 import DynamicTable from "../components/ui/dynamicTable.vue";
+import { formatDate } from "../helpers/dateHelper";
 
 export default {
   name: "Main",
@@ -47,16 +48,6 @@ export default {
     const users = ref([]);
     const dialogVisible = ref(false);
     const selectedUser = ref(null);
-
-    const formatDate = (timestamp) => {
-      const date = new Date(timestamp * 1000);
-      const pad = (num) => num.toString().padStart(2, "0");
-      return `${pad(date.getMonth() + 1)}/${pad(
-        date.getDate()
-      )}/${date.getFullYear()} ${pad(date.getHours())}:${pad(
-        date.getMinutes()
-      )}:${pad(date.getSeconds())}`;
-    };
 
     const tableHeaders = [
       { field: "username", label: "Username", sortable: true },
