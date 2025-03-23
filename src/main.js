@@ -1,16 +1,20 @@
-// src/main.js
 import { createApp } from 'vue'
-import App from './App.vue'
 import { createVuetify } from 'vuetify'
-import 'vuetify/styles' // Importa os estilos base do Vuetify
-import router from './router' // Caso você esteja usando o Vue Router
+import 'vuetify/styles'
+import App from './App.vue'
+import router from './router'
+import 'vuetify/styles'
+import '@mdi/font/css/materialdesignicons.min.css'
 
-// Cria a instância do Vuetify
-const vuetify = createVuetify()
+const vuetify = createVuetify({
+  icons: {
+    defaultSet: 'mdi',  // Define o set padrão como Material Design Icons
+  },
+})
 
 const app = createApp(App)
 
-app.use(router)  // Registra o Vue Router, se estiver em uso
-app.use(vuetify) // Registra o Vuetify na aplicação
+app.use(router)
+app.use(vuetify)
 
 app.mount('#app')

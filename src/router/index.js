@@ -1,20 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Main from '../views/Main.vue'
+import UserPage from '../views/UserPage.vue'
 
-// Defina suas rotas
 const routes = [
-  {
-    path: '/',
-    name: 'Main',
-    component: () => import('../views/Main.vue') // Lazy loading do componente
-  },
-  {
-    path: '/about',
-    name: 'UserPage',
-    component: () => import('../views/UserPage.vue')
-  }
+  { path: '/', name: 'Main', component: Main },
+  { path: '/users/:id', name: 'UserPage', component: UserPage }
 ]
 
-// Cria a instância do router
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
